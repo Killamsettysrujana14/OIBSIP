@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temperature converter</title>
+    <style>
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            height:100vh;
+            margin:0;
+            background:linear-gradient(to right,#b98d26,#d8e153)
+        }
+        div{
+            text-align:center;
+            width:500px;
+            height:400px;
+            margin:auto;
+            padding:20px;
+            background-color:#ffffff;
+            border-radius:30px;
+            font-size:25px;
+            font
+        }
+        select{
+           font-size:20px;
+
+        }
+        button{
+            width:300px;
+            height:30px;
+            text-align: center;
+            background-color: #df5b22;
+            color:rgb(244, 100, 10);
+        }
+        p{
+            text-align: left;
+            font-size:15px;
+        }
+        img{
+            height:50px;
+            width:50px;
+            background-color: #ffffff;
+        }
+        #t3{
+          font-size:20px;
+          width:200px;
+          text-align:center;
+          height:50px;
+          background-color: #dcc816;
+          border:0;
+          margin:auto;
+          padding:0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div>   
+    <p >12.30PM</p>
+    <h2>Temperature Converter </h2>
+    Degrees:<input type="text" size="15px" id="t1">
+    <label>Type</label>
+    <select id="unit">
+    <option value="fahrenheit" >fahrenheit</option>
+    <option value="celsius">celsius</option>
+    <option value="kelvin">kelvin</option>
+   </select><br><br>
+   Result:<input type="text" id="t2"><br><br>
+   <input type="submit" value="convert" onclick="convert()" id="t3">
+   </div>
+</center>
+<script>
+   function convert()
+   {
+    var degree=parseFloat(document.getElementById("t1").value);
+    var result=document.getElementById("t2");
+    var unit=document.getElementById("unit").value;
+    switch(unit)
+    {
+        case "fahrenheit":
+           document.getElementById("t2").value=fahrenheitToCelsius(degree);
+            break;
+        case "celsius":
+            document.getElementById("t2").value=celsiusToFahrenheit(degree);
+            break;
+        case "kelvin":
+            document.getElementById("t2").value=kelvinToCelsius(degree);
+            break;
+    }
+
+   }
+   function celsiusToFahrenheit(celsius) {
+        return celsius;
+    }
+
+    function fahrenheitToCelsius(fahrenheit) {
+        return  (fahrenheit * 9 / 5) + 32;
+    }
+
+    function kelvinToCelsius(kelvin) {
+        return (kelvin + 273.15);
+    }
+
+</script>
+
+</body>
+</html>
